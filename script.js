@@ -1,136 +1,161 @@
-async function getPatients(){
+const username = "coalition";
+const password = "skills-test";
 
-const response = await fetch(
-"https://fedskillstest.coalitiontechnologies.workers.dev",
-{
+const auth = btoa(username + ":" + password);
+
+fetch("https://fedskillstest.coalitiontechnologies.workers.dev",{
+
 headers:{
-"Authorization":"Basic " + btoa("coalition:skills-test")
+Authorization:"Basic "+auth
 }
-}
+
+})
+.then(res=>res.json())
+.then(data=>{
+
+const patient = data.find(p=>p.name==="Jessica Taylor");
+
+
+/* PROFILE */
+
+document.getElementById("name").innerText = patient.name;
+
+document.getElementById("dob").innerText =
+"Date of Birth: "+patient.date_of_birth;
+
+document.getElementById("gender").innerText =
+"Gender: "+patient.gender;
+
+document.getElementById("phone").innerText =
+"Phone: "+patient.phone_number;
+
+document.getElementById("profilePic").src =
+patient.profile_picture;
+
+
+
+/* METRICS */
+
+document.getElementById("resp").innerText =
+patient.diagnosis_history[0].respiratory_rate.value+" bpm";
+
+document.getElementById("temp").innerText =
+patient.diagnosis_history[0].temperature.value+" °F";
+
+document.getElementById("heart").innerText =
+patient.diagnosis_history[0].heart_rate.value+" bpm";
+
+
+
+/* CHART */
+
+const months = patient.diagnosis_history.map(d=>d.month);
+
+const systolic = patient.diagnosis_history.map(
+d=>d.blood_pressure.systolic.value
 );
 
-const data = await response.json();
+const diastolic = patient.diagnosis_history.map(
+d=>d.blood_pressure.diastolic.value
+);
 
-displayPatients(data);
+const ctx = document.getElementById("bpChart");
 
-const jessica = data.find(p => p.name === "Jessica Taylor");
+new Chart(ctx,{
 
-displayPatientInfo(jessica);
-displayVitals(jessica);
-displayDiagnostics(jessica);
-displayChart(jessica);
+type:"line",
+
+data:{
+
+labels:months,
+
+datasets:[
+
+{
+label:"Systolic",
+data:systolic,
+borderColor:"#8A5CF6",
+tension:0.4
+},
+
+{
+label:"Diastolic",
+data:diastolic,
+borderColor:"#00BCD4",
+tension:0.4
+}
+
+]
 
 }
 
-getPatients();
+});
 
 
 
-function displayPatients(patients){
+/* PATIENT LIST */
 
-const list = document.getElementById("patientList");
+const list = document.getElementById("patientsList");
 
-patients.forEach(p => {
+data.forEach(p=>{
 
 const li = document.createElement("li");
 
-li.textContent = p.name;
+li.innerHTML=`
+<img src="${p.profile_picture}">
+<span>${p.name}</span>
+`;
 
 list.appendChild(li);
 
 });
 
-}
 
 
+/* DIAGNOSTIC LIST */
 
-function displayPatientInfo(patient){
+const table = document.getElementById("diagnosticList");
 
-document.getElementById("patientName").innerText = patient.name;
-document.getElementById("dob").innerText = patient.date_of_birth;
-document.getElementById("gender").innerText = patient.gender;
-document.getElementById("phone").innerText = patient.phone_number;
-document.getElementById("insurance").innerText = patient.insurance_type;
+patient.diagnostic_list.forEach(d=>{
 
-}
+const row = document.createElement("tr");
 
+row.innerHTML=`
 
-
-function displayVitals(patient){
-
-const latest = patient.diagnosis_history[0];
-
-document.getElementById("respRate").innerText =
-latest.respiratory_rate.value + " bpm";
-
-document.getElementById("temperature").innerText =
-latest.temperature.value + " °F";
-
-document.getElementById("heartRate").innerText =
-latest.heart_rate.value + " bpm";
-
-}
-
-
-
-function displayDiagnostics(patient){
-
-const table = document.getElementById("diagnosticTable");
-
-patient.diagnostic_list.forEach(d => {
-
-const row = `
-<tr>
 <td>${d.name}</td>
+
 <td>${d.description}</td>
+
 <td>${d.status}</td>
-</tr>
+
 `;
 
-table.innerHTML += row;
+table.appendChild(row);
 
 });
 
-}
 
 
+/* LAB RESULTS */
 
-function displayChart(patient){
+const labs = document.getElementById("labResults");
 
-const history = patient.diagnosis_history;
+patient.lab_results.forEach(l=>{
 
-const labels = history.map(h => h.month);
+const div = document.createElement("div");
 
-const systolic = history.map(
-h => h.blood_pressure.systolic.value
-);
+div.className="lab-item";
 
-const diastolic = history.map(
-h => h.blood_pressure.diastolic.value
-);
+div.innerHTML=`
 
-new Chart(document.getElementById("bpChart"), {
+<span>${l}</span>
 
-type:"line",
+<span>⬇</span>
 
-data:{
-labels:labels,
-datasets:[
-{
-label:"Systolic",
-data:systolic,
-borderColor:"purple",
-fill:false
-},
-{
-label:"Diastolic",
-data:diastolic,
-borderColor:"blue",
-fill:false
-}
-]
-}
+`;
+
+labs.appendChild(div);
 
 });
 
-}
+});
