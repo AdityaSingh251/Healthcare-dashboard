@@ -4,7 +4,7 @@ const password = "skills-test";
 const auth = btoa(username + ":" + password);
 
 fetch("https://fedskillstest.coalitiontechnologies.workers.dev",{
-console.log(patient);
+
 headers:{
 Authorization:"Basic "+auth
 }
