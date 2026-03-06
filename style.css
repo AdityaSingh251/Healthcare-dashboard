@@ -17,15 +17,7 @@ border-bottom:1px solid #eee;
 margin:0 12px;
 cursor:pointer;
 }
-.bp-container{
-display:flex;
-gap:30px;
-align-items:center;
-}
 
-.bp-info{
-min-width:120px;
-}
 .nav .active{
 background:#E8F7F5;
 padding:8px 14px;
