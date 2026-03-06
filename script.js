@@ -1,29 +1,38 @@
+/* ================= API AUTH ================= */
+
 const username = "coalition";
 const password = "skills-test";
 
 const encoded = btoa(username + ":" + password);
 
+
+/* ================= FETCH DATA ================= */
+
 fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
-  headers: {
-    "Authorization": "Basic " + encoded
-  }
+
+headers:{
+"Authorization": "Basic " + encoded
+}
+
 })
 .then(res => res.json())
 .then(data => {
 
-  const patient = data.find(p => p.name === "Jessica Taylor");
+const patient = data.find(p => p.name === "Jessica Taylor");
 
-  displayPatient(patient);
-  drawChart(patient.diagnosis_history);
-  populateDiagnosis(patient.diagnostic_list);
-  populatePatients(data);
-  populateLabResults(patient.lab_results);
+displayPatient(patient);
+drawChart(patient.diagnosis_history);
+populateDiagnosis(patient.diagnostic_list);
+populatePatients(data);
+populateLabResults(patient.lab_results);
 
-});
+})
+.catch(err => console.log("Error loading data:", err));
 
 
 
 /* ================= PATIENT PROFILE ================= */
+
 function displayPatient(patient){
 
 document.getElementById("profilePic").src = patient.profile_picture;
@@ -57,39 +66,60 @@ latest.respiratory_rate.value + " bpm";
 }
 
 
+
 /* ================= CHART ================= */
 
 function drawChart(history){
 
-const labels = history.map(item => item.month);
+const lastSixMonths = history.slice(0,6).reverse();
 
-const systolic = history.map(item => item.blood_pressure.systolic.value);
-const diastolic = history.map(item => item.blood_pressure.diastolic.value);
+const labels = lastSixMonths.map(item => item.month + " " + item.year);
+
+const systolic = lastSixMonths.map(item => item.blood_pressure.systolic.value);
+
+const diastolic = lastSixMonths.map(item => item.blood_pressure.diastolic.value);
 
 const ctx = document.getElementById("bpChart");
 
 new Chart(ctx,{
+
 type:"line",
 
 data:{
+
 labels:labels,
+
 datasets:[
 
 {
 label:"Systolic",
 data:systolic,
 borderColor:"#e46dd5",
-fill:false
+backgroundColor:"transparent",
+tension:0.4
 },
 
 {
 label:"Diastolic",
 data:diastolic,
 borderColor:"#4a8df8",
-fill:false
+backgroundColor:"transparent",
+tension:0.4
 }
 
 ]
+
+},
+
+options:{
+
+responsive:true,
+
+plugins:{
+legend:{
+position:"top"
+}
+}
 
 }
 
@@ -99,7 +129,7 @@ fill:false
 
 
 
-/* ================= DIAGNOSIS LIST ================= */
+/* ================= DIAGNOSTIC LIST ================= */
 
 function populateDiagnosis(list){
 
@@ -135,7 +165,18 @@ patients.forEach(p => {
 
 const active = p.name === "Jessica Taylor" ? "activePatient" : "";
 
-ul.innerHTML += `<li class="${active}">${p.name}</li>`;
+ul.innerHTML += `
+<li class="patient-item ${active}">
+
+<img src="${p.profile_picture}" class="patient-avatar">
+
+<div>
+<strong>${p.name}</strong>
+<p>${p.gender}, ${p.age}</p>
+</div>
+
+</li>
+`;
 
 });
 
@@ -155,8 +196,11 @@ labs.forEach(item => {
 
 labList.innerHTML += `
 <li class="lab-item">
+
 ${item}
+
 <i class="fa-solid fa-download"></i>
+
 </li>
 `;
 
