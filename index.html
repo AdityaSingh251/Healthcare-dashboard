@@ -20,18 +20,66 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <body>
 
-<div class="dashboard">
+<!-- TOP NAVBAR -->
 
+<div class="topbar">
+
+<div class="logo-area">
+<span class="logo">Tech.Care</span>
+</div>
+
+<div class="nav">
+<span class="nav-item">Overview</span>
+<span class="nav-item active">Patients</span>
+<span class="nav-item">Schedule</span>
+<span class="nav-item">Message</span>
+<span class="nav-item">Transactions</span>
+</div>
+
+<div class="doctor">
+<img src="https://i.pravatar.cc/40">
+<span>Dr. Jose Simmons</span>
+</div>
+
+</div>
+
+
+
+<div class="dashboard">
 
 <!-- SIDEBAR -->
 
 <div class="sidebar">
 
-<h2 class="logo">Tech.Care</h2>
-
 <h3>Patients</h3>
 
-<ul id="patientList"></ul>
+<ul id="patientList">
+
+<li class="patient active">
+<img src="https://i.pravatar.cc/40?img=1">
+<div>
+<p>Jessica Taylor</p>
+<span>Female, 28</span>
+</div>
+</li>
+
+<li class="patient">
+<img src="https://i.pravatar.cc/40?img=2">
+<div>
+<p>Emily Williams</p>
+<span>Female, 18</span>
+</div>
+</li>
+
+<li class="patient">
+<img src="https://i.pravatar.cc/40?img=3">
+<div>
+<p>Ryan Johnson</p>
+<span>Male, 45</span>
+</div>
+</li>
+
+</ul>
 
 </div>
 
@@ -41,7 +89,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="main">
 
-<!-- Diagnosis History -->
+<!-- CHART SECTION -->
 
 <div class="chart-card">
 
@@ -51,7 +99,10 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="bp-chart">
 
+<div class="chart-header">
 <h4>Blood Pressure</h4>
+<span>Last 6 months</span>
+</div>
 
 <canvas id="bpChart"></canvas>
 
@@ -67,7 +118,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 Systolic
 </div>
 
-<h2 id="systolicValue"></h2>
+<h2>160</h2>
 
 <p class="trend-up">▲ Higher than Average</p>
 
@@ -81,7 +132,7 @@ Systolic
 Diastolic
 </div>
 
-<h2 id="diastolicValue"></h2>
+<h2>78</h2>
 
 <p class="trend-down">▼ Lower than Average</p>
 
@@ -95,7 +146,7 @@ Diastolic
 
 
 
-<!-- Health Cards -->
+<!-- HEALTH CARDS -->
 
 <div class="cards">
 
@@ -104,13 +155,9 @@ Diastolic
 <i class="fa-solid fa-lungs"></i>
 
 <div>
-
 <h4>Respiratory Rate</h4>
-
-<p id="respiratoryRate"></p>
-
+<p>20 bpm</p>
 <span>Normal</span>
-
 </div>
 
 </div>
@@ -121,13 +168,9 @@ Diastolic
 <i class="fa-solid fa-thermometer-half"></i>
 
 <div>
-
 <h4>Temperature</h4>
-
-<p id="temperature"></p>
-
+<p>98.6°F</p>
 <span>Normal</span>
-
 </div>
 
 </div>
@@ -138,13 +181,9 @@ Diastolic
 <i class="fa-solid fa-heart"></i>
 
 <div>
-
 <h4>Heart Rate</h4>
-
-<p id="heartRate"></p>
-
+<p>78 bpm</p>
 <span>Lower than Average</span>
-
 </div>
 
 </div>
@@ -153,7 +192,7 @@ Diastolic
 
 
 
-<!-- Diagnostic List -->
+<!-- DIAGNOSTIC LIST -->
 
 <div class="diagnostic-card">
 
@@ -162,16 +201,34 @@ Diastolic
 <table>
 
 <thead>
-
 <tr>
 <th>Problem</th>
 <th>Description</th>
 <th>Status</th>
 </tr>
-
 </thead>
 
-<tbody id="diagnosisList"></tbody>
+<tbody>
+
+<tr>
+<td>Hypertension</td>
+<td>Chronic high blood pressure</td>
+<td>Under Observation</td>
+</tr>
+
+<tr>
+<td>Type 2 Diabetes</td>
+<td>Insulin resistance</td>
+<td>Cured</td>
+</tr>
+
+<tr>
+<td>Asthma</td>
+<td>Bronchial constriction</td>
+<td>Inactive</td>
+</tr>
+
+</tbody>
 
 </table>
 
@@ -181,36 +238,39 @@ Diastolic
 
 
 
-<!-- PROFILE COLUMN -->
+<!-- PROFILE -->
 
 <div class="profile">
 
-<img id="profilePic" class="profile-pic">
+<img class="profile-pic"
+src="https://i.pravatar.cc/100?img=5">
 
-<h2 id="patientName"></h2>
+<h2>Jessica Taylor</h2>
 
-
-<p><strong>Date of Birth:</strong> <span id="dob"></span></p>
-
-<p><strong>Gender:</strong> <span id="gender"></span></p>
-
-<p><strong>Contact Info:</strong> <span id="phone"></span></p>
-
-<p><strong>Emergency Contact:</strong> <span id="emergency"></span></p>
-
-<p><strong>Insurance Provider:</strong> <span id="insurance"></span></p>
-
+<p><b>Date Of Birth:</b> Aug 23, 1996</p>
+<p><b>Gender:</b> Female</p>
+<p><b>Contact Info:</b> (415) 555-1234</p>
+<p><b>Emergency Contact:</b> (415) 555-5678</p>
+<p><b>Insurance Provider:</b> Sunrise Health Assurance</p>
 
 <button class="info-btn">Show All Information</button>
 
 
-<!-- Lab Results -->
+<!-- LAB RESULTS -->
 
 <div class="lab-card">
 
 <h3>Lab Results</h3>
 
-<ul id="labResults"></ul>
+<ul>
+
+<li>Blood Tests</li>
+<li>CT Scans</li>
+<li>Radiology Reports</li>
+<li>X-Rays</li>
+<li>Urine Test</li>
+
+</ul>
 
 </div>
 
@@ -218,9 +278,6 @@ Diastolic
 
 
 </div>
-
-<script src="script.js"></script>
 
 </body>
-
 </html>
