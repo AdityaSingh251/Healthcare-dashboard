@@ -24,7 +24,6 @@ fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
 
 
 /* ================= PATIENT PROFILE ================= */
-
 function displayPatient(patient){
 
 document.getElementById("profilePic").src = patient.profile_picture;
@@ -41,7 +40,9 @@ document.getElementById("emergency").innerText = patient.emergency_contact;
 
 document.getElementById("insurance").innerText = patient.insurance_type;
 
-}
+
+/* Latest vitals */
+
 const latest = patient.diagnosis_history[0];
 
 document.getElementById("heartRate").innerText =
@@ -54,7 +55,6 @@ document.getElementById("respiratoryRate").innerText =
 latest.respiratory_rate.value + " bpm";
 
 }
-
 
 
 /* ================= CHART ================= */
