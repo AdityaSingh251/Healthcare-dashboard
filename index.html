@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
 <meta charset="UTF-8">
 <title>Healthcare Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -18,7 +25,7 @@
 <!-- Sidebar -->
 <div class="sidebar">
 
-<h2>Patients</h2>
+<h2 class="logo">Tech.Care</h2>
 
 <ul id="patientList"></ul>
 
@@ -35,19 +42,44 @@
 
 <div class="cards">
 
-<div class="card">
+<div class="card blue">
+
+<i class="fa-solid fa-lungs"></i>
+
 <h3>Respiratory Rate</h3>
+
 <p id="respiratoryRate"></p>
+
+<span>Normal</span>
+
 </div>
 
-<div class="card">
+
+
+<div class="card pink">
+
+<i class="fa-solid fa-temperature-three-quarters"></i>
+
 <h3>Temperature</h3>
+
 <p id="temperature"></p>
+
+<span>Normal</span>
+
 </div>
 
-<div class="card">
+
+
+<div class="card purple">
+
+<i class="fa-solid fa-heart"></i>
+
 <h3>Heart Rate</h3>
+
 <p id="heartRate"></p>
+
+<span>Lower than Average</span>
+
 </div>
 
 </div>
@@ -74,14 +106,32 @@
 
 
 
-<!-- Profile -->
+<!-- Profile + Lab -->
 <div class="profile">
+
+<div class="profileCard">
+
+<img id="profileImage" src="" />
 
 <h2 id="patientName"></h2>
 
-<p><b>Date Of Birth:</b> <span id="dob"></span></p>
+<p><b>DOB:</b> <span id="dob"></span></p>
+
 <p><b>Gender:</b> <span id="gender"></span></p>
+
 <p><b>Phone:</b> <span id="phone"></span></p>
+
+</div>
+
+
+
+<div class="labResults">
+
+<h3>Lab Results</h3>
+
+<ul id="labResults"></ul>
+
+</div>
 
 </div>
 
@@ -90,4 +140,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
