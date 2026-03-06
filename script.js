@@ -116,24 +116,19 @@ list.appendChild(li);
 
 const table = document.getElementById("diagnosticList");
 
-patient.diagnostic_list.forEach(d=>{
+patient.diagnostic_list.forEach(d => {
 
 const row = document.createElement("tr");
 
-row.innerHTML=`
-
-<td>${d.name}</td>
-
+row.innerHTML = `
+<td>${d.problem}</td>
 <td>${d.description}</td>
-
 <td>${d.status}</td>
-
 `;
 
 table.appendChild(row);
 
 });
-
 
 
 /* LAB RESULTS */
