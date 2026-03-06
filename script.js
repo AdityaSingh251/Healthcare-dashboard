@@ -14,7 +14,13 @@ Authorization:"Basic "+auth
 .then(data=>{
 
 const patient = data.find(p=>p.name==="Jessica Taylor");
-  console.log(patient.diagnostic_list);
+const latest = patient.diagnosis_history[0];
+
+const systolic = latest.blood_pressure.systolic.value;
+const diastolic = latest.blood_pressure.diastolic.value;
+
+document.getElementById("systolicValue").innerText = systolic;
+document.getElementById("diastolicValue").innerText = diastolic;
 
 
 /* PROFILE */
@@ -32,14 +38,6 @@ document.getElementById("phone").innerText =
 
 document.getElementById("profilePic").src =
 patient.profile_picture;
-
-  const latest = patient.diagnosis_history[0];
-
-  const systolic = latest.blood_pressure.systolic.value;
-  const diastolic = latest.blood_pressure.diastolic.value;
-
-  document.getElementById("systolicValue").innerText = systolic;
-  document.getElementById("diastolicValue").innerText = diastolic;
 
 
 /* METRICS */
