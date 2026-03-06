@@ -28,6 +28,7 @@ populatePatients(data);
 
 
 function displayPatient(patient){
+document.getElementById("profilePic").src = patient.profile_picture;
 
 document.getElementById("patientName").innerText = patient.name;
 
