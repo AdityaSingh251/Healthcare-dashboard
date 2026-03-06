@@ -128,5 +128,42 @@ patients.forEach(p => {
 ul.innerHTML += `<li>${p.name}</li>`;
 
 });
+  function displayPatient(patient){
+
+document.getElementById("patientName").innerText = patient.name;
+document.getElementById("dob").innerText = patient.date_of_birth;
+document.getElementById("gender").innerText = patient.gender;
+document.getElementById("phone").innerText = patient.phone_number;
+
+document.getElementById("profileImage").src = patient.profile_picture;
+
+const latest = patient.diagnosis_history[0];
+
+document.getElementById("heartRate").innerText =
+latest.heart_rate.value + " bpm";
+
+document.getElementById("temperature").innerText =
+latest.temperature.value + "°F";
+
+document.getElementById("respiratoryRate").innerText =
+latest.respiratory_rate.value + " bpm";
+
+
+/* Lab Results */
+
+const labList = document.getElementById("labResults");
+
+patient.lab_results.forEach(item => {
+
+labList.innerHTML += `
+<li>
+${item}
+<i class="fa-solid fa-download"></i>
+</li>
+`;
+
+});
+
+}
 
 }
