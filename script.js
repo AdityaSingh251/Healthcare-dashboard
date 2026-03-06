@@ -3,10 +3,12 @@ const password = "skills-test";
 
 const encoded = btoa(username + ":" + password);
 
-fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
-headers: {
-"Authorization": "Basic " + encoded
+fetch("https://fedskillstest.coalitiontechnologies.workers.dev",{
+
+headers:{
+"Authorization":"Basic " + encoded
 }
+
 })
 .then(res => res.json())
 .then(data => {
@@ -28,9 +30,13 @@ populatePatients(data);
 function displayPatient(patient){
 
 document.getElementById("patientName").innerText = patient.name;
+
 document.getElementById("dob").innerText = patient.date_of_birth;
+
 document.getElementById("gender").innerText = patient.gender;
+
 document.getElementById("phone").innerText = patient.phone_number;
+
 
 const latest = patient.diagnosis_history[0];
 
@@ -52,27 +58,41 @@ function drawChart(history){
 const labels = history.map(item => item.month);
 
 const systolic = history.map(item => item.blood_pressure.systolic.value);
+
 const diastolic = history.map(item => item.blood_pressure.diastolic.value);
+
 
 const ctx = document.getElementById("bpChart");
 
-new Chart(ctx, {
-type: "line",
-data: {
-labels: labels,
-datasets: [
+
+new Chart(ctx,{
+
+type:"line",
+
+data:{
+
+labels:labels,
+
+datasets:[
+
 {
 label:"Systolic",
 data:systolic,
-borderColor:"red"
+borderColor:"#e46dd5",
+fill:false
 },
+
 {
 label:"Diastolic",
 data:diastolic,
-borderColor:"blue"
+borderColor:"#4a8df8",
+fill:false
 }
+
 ]
+
 }
+
 });
 
 }
