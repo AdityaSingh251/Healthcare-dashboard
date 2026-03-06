@@ -1,15 +1,10 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
 <meta charset="UTF-8">
-
-<title>Healthcare Dashboard</title>
+<title>HealthCare Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -17,135 +12,76 @@
 
 <body>
 
-<div class="header">
-
-<h2 class="logo">Tech.Care</h2>
-
-<div class="nav">
-<span>Overview</span>
-<span class="active">Patients</span>
-<span>Schedule</span>
-<span>Message</span>
-<span>Transactions</span>
-</div>
-
-</div>
-
-
 <div class="container">
 
-
-<!-- SIDEBAR -->
-
+<!-- Sidebar -->
 <div class="sidebar">
-
-<h3>Patients</h3>
-
-<ul id="patientsList"></ul>
-
+<h2>Patients</h2>
+<ul id="patientList"></ul>
 </div>
 
 
-
-<!-- MAIN -->
-
+<!-- Main Content -->
 <div class="main">
 
-<div class="card">
-
-<h3>Diagnosis History</h3>
+<h2>Diagnosis History</h2>
 
 <canvas id="bpChart"></canvas>
 
-</div>
-
-
-<div class="metrics">
-
-<div class="metric blue">
-
-<h4>Respiratory Rate</h4>
-
-<h2 id="resp"></h2>
-
-</div>
-
-<div class="metric pink">
-
-<h4>Temperature</h4>
-
-<h2 id="temp"></h2>
-
-</div>
-
-<div class="metric purple">
-
-<h4>Heart Rate</h4>
-
-<h2 id="heart"></h2>
-
-</div>
-
-</div>
-
+<div class="cards">
 
 <div class="card">
+<h3>Respiratory Rate</h3>
+<p id="respiratoryRate"></p>
+</div>
 
-<h3>Diagnostic List</h3>
+<div class="card">
+<h3>Temperature</h3>
+<p id="temperature"></p>
+</div>
+
+<div class="card">
+<h3>Heart Rate</h3>
+<p id="heartRate"></p>
+</div>
+
+</div>
+
+
+<h2>Diagnostic List</h2>
 
 <table>
-
 <thead>
-
 <tr>
-
 <th>Problem</th>
-
 <th>Description</th>
-
 <th>Status</th>
-
 </tr>
-
 </thead>
 
-<tbody id="diagnosticList"></tbody>
+<tbody id="diagnosisList"></tbody>
 
 </table>
 
-</div>
-
 
 </div>
 
 
-
-<!-- PROFILE -->
-
+<!-- Patient Profile -->
 <div class="profile">
 
-<img id="profilePic">
+<h2 id="patientName"></h2>
 
-<h2 id="name"></h2>
-
-<p id="dob"></p>
-
-<p id="gender"></p>
-
-<p id="phone"></p>
-
-<h3>Lab Results</h3>
-
-<div id="labResults"></div>
+<p><b>DOB:</b> <span id="dob"></span></p>
+<p><b>Gender:</b> <span id="gender"></span></p>
+<p><b>Phone:</b> <span id="phone"></span></p>
 
 </div>
 
 
 </div>
-
 
 <script src="script.js"></script>
 
 </body>
-
 </html>
