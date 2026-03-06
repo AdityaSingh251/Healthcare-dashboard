@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -22,19 +21,29 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="dashboard">
 
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2 class="logo">Tech.Care</h2>
+
+<h4>Patients</h4>
+
+<ul id="patientList"></ul>
+
+</div>
+
+
+
 <!-- MAIN CONTENT -->
 
 <div class="main">
-
-<!-- DIAGNOSIS HISTORY CARD -->
 
 <div class="chart-card">
 
 <h2>Diagnosis History</h2>
 
 <div class="bp-wrapper">
-
-<!-- LEFT SIDE : CHART -->
 
 <div class="bp-chart">
 
@@ -45,40 +54,26 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
-<!-- RIGHT SIDE : VALUES -->
-
 <div class="bp-stats">
 
-<div class="bp-item">
+<div>
 
-<div class="bp-label">
+<span class="dot systolic"></span> Systolic
 
-<span class="dot systolic"></span>
+<h2 id="systolicValue"></h2>
 
-Systolic
-
-</div>
-
-<h2 id="systolicValue">160</h2>
-
-<p class="trend-up">▲ Higher than Average</p>
+<p>Higher than Average</p>
 
 </div>
 
 
-<div class="bp-item">
+<div>
 
-<div class="bp-label">
+<span class="dot diastolic"></span> Diastolic
 
-<span class="dot diastolic"></span>
+<h2 id="diastolicValue"></h2>
 
-Diastolic
-
-</div>
-
-<h2 id="diastolicValue">78</h2>
-
-<p class="trend-down">▼ Lower than Average</p>
+<p>Lower than Average</p>
 
 </div>
 
@@ -87,6 +82,7 @@ Diastolic
 </div>
 
 </div>
+
 
 
 <!-- HEALTH CARDS -->
@@ -101,7 +97,7 @@ Diastolic
 
 <h4>Respiratory Rate</h4>
 
-<p>20 bpm</p>
+<p id="respiratoryRate"></p>
 
 <span>Normal</span>
 
@@ -118,7 +114,7 @@ Diastolic
 
 <h4>Temperature</h4>
 
-<p>98.6°F</p>
+<p id="temperature"></p>
 
 <span>Normal</span>
 
@@ -135,7 +131,7 @@ Diastolic
 
 <h4>Heart Rate</h4>
 
-<p>78 bpm</p>
+<p id="heartRate"></p>
 
 <span>Lower than Average</span>
 
@@ -145,9 +141,68 @@ Diastolic
 
 </div>
 
+
+
+<!-- DIAGNOSTIC LIST -->
+
+<div class="diagnostic-card">
+
+<h3>Diagnostic List</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Problem</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody id="diagnosisList"></tbody>
+
+</table>
+
 </div>
 
 </div>
+
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+<img id="profilePic">
+
+<h2 id="patientName"></h2>
+
+<p><b>DOB:</b> <span id="dob"></span></p>
+
+<p><b>Gender:</b> <span id="gender"></span></p>
+
+<p><b>Phone:</b> <span id="phone"></span></p>
+
+<p><b>Emergency:</b> <span id="emergency"></span></p>
+
+<p><b>Insurance:</b> <span id="insurance"></span></p>
+
+
+<div class="lab-card">
+
+<h3>Lab Results</h3>
+
+<ul id="labResults"></ul>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
