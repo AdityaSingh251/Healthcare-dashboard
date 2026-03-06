@@ -238,9 +238,8 @@ width:6px;
 background:#ccc;
 border-radius:10px;
 }
-.chart-section{
-height:260px;
-}
+
+
 /* Scrollbar */
 
 ::-webkit-scrollbar{
