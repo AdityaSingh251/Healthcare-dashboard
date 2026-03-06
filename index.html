@@ -22,21 +22,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="dashboard">
 
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<div class="logo">Tech.Care</div>
+
+<h3 class="patients-title">Patients</h3>
+
+<ul id="patientList" class="patient-list"></ul>
+
+</div>
+
+
+
 <!-- MAIN CONTENT -->
 
 <div class="main">
 
-<!-- DIAGNOSIS HISTORY CARD -->
+<!-- DIAGNOSIS HISTORY -->
 
 <div class="chart-card">
 
 <h2>Diagnosis History</h2>
 
-<div class="bp-wrapper">
+<div class="chart-container">
 
-<!-- LEFT SIDE : CHART -->
-
-<div class="bp-chart">
+<div class="chart-left">
 
 <h4>Blood Pressure</h4>
 
@@ -45,18 +57,13 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
-<!-- RIGHT SIDE : VALUES -->
+<div class="chart-right">
 
-<div class="bp-stats">
+<div class="bp-row">
 
-<div class="bp-item">
-
-<div class="bp-label">
-
+<div class="bp-title">
 <span class="dot systolic"></span>
-
 Systolic
-
 </div>
 
 <h2 id="systolicValue">160</h2>
@@ -66,14 +73,11 @@ Systolic
 </div>
 
 
-<div class="bp-item">
+<div class="bp-row">
 
-<div class="bp-label">
-
+<div class="bp-title">
 <span class="dot diastolic"></span>
-
 Diastolic
-
 </div>
 
 <h2 id="diastolicValue">78</h2>
@@ -89,6 +93,7 @@ Diastolic
 </div>
 
 
+
 <!-- HEALTH CARDS -->
 
 <div class="cards">
@@ -101,13 +106,14 @@ Diastolic
 
 <h4>Respiratory Rate</h4>
 
-<p>20 bpm</p>
+<p id="respiratoryRate">20 bpm</p>
 
 <span>Normal</span>
 
 </div>
 
 </div>
+
 
 
 <div class="card pink">
@@ -118,13 +124,14 @@ Diastolic
 
 <h4>Temperature</h4>
 
-<p>98.6°F</p>
+<p id="temperature">98.6°F</p>
 
 <span>Normal</span>
 
 </div>
 
 </div>
+
 
 
 <div class="card red">
@@ -135,7 +142,7 @@ Diastolic
 
 <h4>Heart Rate</h4>
 
-<p>78 bpm</p>
+<p id="heartRate">78 bpm</p>
 
 <span>Lower than Average</span>
 
@@ -145,9 +152,117 @@ Diastolic
 
 </div>
 
+
+
+<!-- DIAGNOSTIC LIST -->
+
+<div class="diagnostic-card">
+
+<h3>Diagnostic List</h3>
+
+<div class="diagnostic-scroll">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Problem</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody id="diagnosisList"></tbody>
+
+</table>
+
 </div>
 
 </div>
+
+</div>
+
+
+
+<!-- PROFILE COLUMN -->
+
+<div class="profile">
+
+<img id="profilePic" class="profile-pic">
+
+<h2 id="patientName">Jessica Taylor</h2>
+
+<div class="profile-info">
+
+<div class="info-row">
+<i class="fa-solid fa-calendar"></i>
+<div>
+<span>Date Of Birth</span>
+<p id="dob">08/23/1996</p>
+</div>
+</div>
+
+
+<div class="info-row">
+<i class="fa-solid fa-user"></i>
+<div>
+<span>Gender</span>
+<p id="gender">Female</p>
+</div>
+</div>
+
+
+<div class="info-row">
+<i class="fa-solid fa-phone"></i>
+<div>
+<span>Contact Info</span>
+<p id="phone">(415) 555-1234</p>
+</div>
+</div>
+
+
+<div class="info-row">
+<i class="fa-solid fa-phone-volume"></i>
+<div>
+<span>Emergency Contact</span>
+<p id="emergency">(415) 555-5678</p>
+</div>
+</div>
+
+
+<div class="info-row">
+<i class="fa-solid fa-shield-heart"></i>
+<div>
+<span>Insurance Provider</span>
+<p id="insurance">Sunrise Health Assurance</p>
+</div>
+</div>
+
+</div>
+
+
+<button class="info-btn">Show All Information</button>
+
+
+<!-- LAB RESULTS -->
+
+<div class="lab-card">
+
+<h3>Lab Results</h3>
+
+<ul id="labResults"></ul>
+
+</div>
+
+</div>
+
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
