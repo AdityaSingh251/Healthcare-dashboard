@@ -1,111 +1,161 @@
-body{
-font-family:'Inter',sans-serif;
-margin:0;
-background:#F6F8FC;
+const username = "coalition";
+const password = "skills-test";
+
+const auth = btoa(username + ":" + password);
+
+fetch("https://fedskillstest.coalitiontechnologies.workers.dev",{
+
+headers:{
+Authorization:"Basic "+auth
 }
 
-.header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px 30px;
-background:white;
-border-bottom:1px solid #eee;
+})
+.then(res=>res.json())
+.then(data=>{
+
+const patient = data.find(p=>p.name==="Jessica Taylor");
+
+
+/* PROFILE */
+
+document.getElementById("name").innerText = patient.name;
+
+document.getElementById("dob").innerText =
+"Date of Birth: "+patient.date_of_birth;
+
+document.getElementById("gender").innerText =
+"Gender: "+patient.gender;
+
+document.getElementById("phone").innerText =
+"Phone: "+patient.phone_number;
+
+document.getElementById("profilePic").src =
+patient.profile_picture;
+
+
+
+/* METRICS */
+
+document.getElementById("resp").innerText =
+patient.diagnosis_history[0].respiratory_rate.value+" bpm";
+
+document.getElementById("temp").innerText =
+patient.diagnosis_history[0].temperature.value+" °F";
+
+document.getElementById("heart").innerText =
+patient.diagnosis_history[0].heart_rate.value+" bpm";
+
+
+
+/* CHART */
+
+const months = patient.diagnosis_history.map(d=>d.month);
+
+const systolic = patient.diagnosis_history.map(
+d=>d.blood_pressure.systolic.value
+);
+
+const diastolic = patient.diagnosis_history.map(
+d=>d.blood_pressure.diastolic.value
+);
+
+const ctx = document.getElementById("bpChart");
+
+new Chart(ctx,{
+
+type:"line",
+
+data:{
+
+labels:months,
+
+datasets:[
+
+{
+label:"Systolic",
+data:systolic,
+borderColor:"#8A5CF6",
+tension:0.4
+},
+
+{
+label:"Diastolic",
+data:diastolic,
+borderColor:"#00BCD4",
+tension:0.4
 }
 
-.nav span{
-margin:0 12px;
-cursor:pointer;
+]
+
 }
 
-.nav .active{
-background:#E8F7F5;
-padding:8px 14px;
-border-radius:20px;
-}
+});
 
-.container{
-display:grid;
-grid-template-columns:260px 1fr 320px;
-height:calc(100vh - 70px);
-}
 
-.sidebar{
-background:white;
-padding:20px;
-border-right:1px solid #eee;
-overflow:auto;
-}
 
-.sidebar li{
-display:flex;
-align-items:center;
-gap:10px;
-padding:12px;
-border-bottom:1px solid #eee;
-}
+/* PATIENT LIST */
 
-.sidebar img{
-width:40px;
-height:40px;
-border-radius:50%;
-}
+const list = document.getElementById("patientsList");
 
-.main{
-padding:25px;
-overflow:auto;
-}
+data.forEach(p=>{
 
-.profile{
-background:white;
-padding:25px;
-border-left:1px solid #eee;
-}
+const li = document.createElement("li");
 
-.profile img{
-width:120px;
-border-radius:50%;
-margin-bottom:10px;
-}
+li.innerHTML=`
+<img src="${p.profile_picture}">
+<span>${p.name}</span>
+`;
 
-.card{
-background:white;
-padding:20px;
-border-radius:16px;
-box-shadow:0 2px 8px rgba(0,0,0,0.05);
-margin-bottom:20px;
-}
+list.appendChild(li);
 
-.metrics{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin:20px 0;
-}
+});
 
-.metric{
-padding:20px;
-border-radius:16px;
-}
 
-.blue{background:#E8F7FF;}
-.pink{background:#FFEAF3;}
-.purple{background:#F3F0FF;}
 
-table{
-width:100%;
-border-collapse:collapse;
-}
+/* DIAGNOSTIC LIST */
 
-th,td{
-padding:12px;
-border-bottom:1px solid #eee;
-text-align:left;
-}
+const table = document.getElementById("diagnosticList");
 
-.lab-item{
-display:flex;
-justify-content:space-between;
-padding:10px 0;
-border-bottom:1px solid #eee;
-}
+patient.diagnostic_list.forEach(d=>{
+
+const row = document.createElement("tr");
+
+row.innerHTML=`
+
+<td>${d.name}</td>
+
+<td>${d.description}</td>
+
+<td>${d.status}</td>
+
+`;
+
+table.appendChild(row);
+
+});
+
+
+
+/* LAB RESULTS */
+
+const labs = document.getElementById("labResults");
+
+patient.lab_results.forEach(l=>{
+
+const div = document.createElement("div");
+
+div.className="lab-item";
+
+div.innerHTML=`
+
+<span>${l}</span>
+
+<span>⬇</span>
+
+`;
+
+labs.appendChild(div);
+
+});
+
+});
