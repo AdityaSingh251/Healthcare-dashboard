@@ -1,66 +1,58 @@
-*{
+body{
+font-family:Arial;
+background:#f5f7fb;
 margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
 }
 
-body{
-background:#f6f8fc;
+.dashboard{
+display:grid;
+grid-template-columns:250px 1fr 300px;
+height:100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+background:white;
+padding:20px;
+border-right:1px solid #eee;
+}
+
+.sidebar ul{
+list-style:none;
+padding:0;
+}
+
+.sidebar li{
+padding:8px;
+cursor:pointer;
 }
 
 /* MAIN */
 
 .main{
-padding:30px;
-max-width:1100px;
-margin:auto;
+padding:20px;
+overflow:auto;
 }
-
-
-/* CHART CARD */
 
 .chart-card{
 background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 2px 10px rgba(0,0,0,0.05);
-margin-bottom:25px;
-}
-
-.chart-card h2{
-margin-bottom:15px;
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
 }
 
 .bp-wrapper{
 display:flex;
-align-items:center;
-gap:40px;
+gap:30px;
 }
 
 .bp-chart{
 flex:3;
 }
 
-.bp-chart h4{
-margin-bottom:10px;
-}
-
 .bp-stats{
 flex:1;
-}
-
-.bp-item{
-margin-bottom:25px;
-}
-
-.bp-label{
-display:flex;
-align-items:center;
-gap:8px;
-font-weight:600;
-color:#666;
-margin-bottom:5px;
 }
 
 .dot{
@@ -78,64 +70,57 @@ background:#d46cff;
 background:#4a8df8;
 }
 
-.bp-item h2{
-font-size:28px;
-margin:5px 0;
-}
-
-.trend-up{
-font-size:13px;
-color:#666;
-}
-
-.trend-down{
-font-size:13px;
-color:#666;
-}
-
-
-/* HEALTH CARDS */
+/* CARDS */
 
 .cards{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:20px;
+margin-bottom:20px;
 }
 
 .card{
+padding:15px;
+border-radius:10px;
 display:flex;
-align-items:center;
-gap:15px;
-padding:18px;
-border-radius:12px;
+gap:10px;
 }
 
-.card i{
-font-size:22px;
+.blue{background:#dff6ff;}
+.pink{background:#ffe5ec;}
+.red{background:#ffe5e5;}
+
+/* DIAGNOSTIC */
+
+.diagnostic-card{
+background:white;
+padding:20px;
+border-radius:10px;
 }
 
-.card h4{
-font-size:14px;
+table{
+width:100%;
+border-collapse:collapse;
 }
 
-.card p{
-font-size:18px;
-font-weight:600;
+th,td{
+padding:10px;
+border-bottom:1px solid #eee;
 }
 
-.card span{
-font-size:12px;
-color:#666;
+/* PROFILE */
+
+.profile{
+background:white;
+padding:20px;
+border-left:1px solid #eee;
 }
 
-.blue{
-background:#e3f6ff;
+.profile img{
+width:80px;
+border-radius:50%;
 }
 
-.pink{
-background:#ffe3ec;
-}
-
-.red{
-background:#ffe3e3;
+.lab-card{
+margin-top:20px;
 }
