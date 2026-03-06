@@ -202,19 +202,31 @@ cursor:pointer;
 
 /* Lab Results */
 
-.lab-results{
-margin-top:30px;
+.lab-card{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-top:25px;
+box-shadow:0 2px 8px rgba(0,0,0,0.08);
+max-height:200px;
+overflow-y:auto;
 width:100%;
 }
 
-.lab-results ul{
-list-style:none;
-padding:0;
+.lab-card h3{
+margin-bottom:10px;
 }
 
-.lab-results li{
+.lab-card ul{
+list-style:none;
+padding:0;
+margin:0;
+}
+
+.lab-item{
 display:flex;
 justify-content:space-between;
+align-items:center;
 padding:10px 0;
 border-bottom:1px solid #eee;
 }
