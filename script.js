@@ -121,7 +121,7 @@ patient.diagnostic_list.forEach(d => {
 const row = document.createElement("tr");
 
 row.innerHTML = `
-<td>${d.name}</td>
+<td>${d.problem}</td>
 <td>${d.description}</td>
 <td>${d.status}</td>
 `;
