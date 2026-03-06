@@ -20,7 +20,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="dashboard">
 
-<!-- Sidebar -->
+<!-- SIDEBAR -->
 
 <div class="sidebar">
 
@@ -28,72 +28,67 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <h3 class="patients-title">Patients</h3>
 
-<ul id="patientList"></ul>
+<ul id="patientList" class="patient-list"></ul>
 
 </div>
 
 
-<!-- Main Section -->
+<!-- MAIN CONTENT -->
 
 <div class="main">
 
+<div class="chart-section">
+
 <h2>Diagnosis History</h2>
 
-<div class="chart-card">
 <canvas id="bpChart"></canvas>
+
 </div>
 
 
-<!-- Health Cards -->
+<!-- HEALTH CARDS -->
 
 <div class="cards">
 
 <div class="card blue">
-
 <i class="fa-solid fa-lungs"></i>
-
+<div>
 <h4>Respiratory Rate</h4>
-
-<p id="respiratoryRate">--</p>
-
+<p id="respiratoryRate"></p>
 <span>Normal</span>
-
+</div>
 </div>
 
 
 <div class="card pink">
-
 <i class="fa-solid fa-thermometer-half"></i>
-
+<div>
 <h4>Temperature</h4>
-
-<p id="temperature">--</p>
-
+<p id="temperature"></p>
 <span>Normal</span>
-
+</div>
 </div>
 
 
 <div class="card red">
-
 <i class="fa-solid fa-heart"></i>
-
+<div>
 <h4>Heart Rate</h4>
-
-<p id="heartRate">--</p>
-
+<p id="heartRate"></p>
 <span>Lower than Average</span>
-
+</div>
 </div>
 
 </div>
 
 
-<!-- Diagnostic List -->
+<!-- DIAGNOSTIC LIST -->
 
-<div class="diagnostic-container">
+<div class="diagnostic-card">
 
 <h3>Diagnostic List</h3>
+
+<div class="diagnostic-scroll">
 
 <table>
 
@@ -115,32 +110,33 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </div>
 
+</div>
 
-<!-- Profile Section -->
+
+<!-- PROFILE SECTION -->
 
 <div class="profile">
 
 <img id="profilePic" class="profile-pic">
 
-<h2 id="patientName">Jessica Taylor</h2>
+<h2 id="patientName"></h2>
 
-<div class="profile-info">
+<div class="profile-details">
 
-<p><strong>Date Of Birth</strong><br><span id="dob"></span></p>
+<p><i class="fa-solid fa-calendar"></i> <span id="dob"></span></p>
 
-<p><strong>Gender</strong><br><span id="gender"></span></p>
+<p><i class="fa-solid fa-user"></i> <span id="gender"></span></p>
 
-<p><strong>Contact Info</strong><br><span id="phone"></span></p>
+<p><i class="fa-solid fa-phone"></i> <span id="phone"></span></p>
 
 </div>
 
+<button class="info-btn">Show All Information</button>
 
-<button class="profile-btn">Show All Information</button>
 
+<!-- LAB RESULTS -->
 
-<!-- Lab Results -->
-
-<div class="lab-results">
+<div class="lab-card">
 
 <h3>Lab Results</h3>
 
@@ -151,7 +147,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 </div>
-
+  
 <script src="script.js"></script>
 
 </body>
