@@ -28,9 +28,6 @@ fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
 function displayPatient(patient){
 
 document.getElementById("profilePic").src = patient.profile_picture;
-function displayPatient(patient){
-
-document.getElementById("profilePic").src = patient.profile_picture;
 
 document.getElementById("patientName").innerText = patient.name;
 
