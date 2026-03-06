@@ -1,5 +1,5 @@
 body{
-font-family: Arial;
+font-family:'Inter',sans-serif;
 margin:0;
 background:#f4f6fb;
 }
@@ -15,34 +15,46 @@ height:100vh;
 width:20%;
 background:white;
 padding:20px;
-border-right:1px solid #ddd;
+border-right:1px solid #eee;
 overflow:auto;
 }
 
-.sidebar ul{
-list-style:none;
-padding:0;
+.logo{
+color:#00bfa5;
+margin-bottom:20px;
 }
 
 .sidebar li{
-padding:10px;
+padding:12px;
 border-bottom:1px solid #eee;
+display:flex;
+align-items:center;
+gap:10px;
 cursor:pointer;
 }
+
+.sidebar img{
+width:35px;
+height:35px;
+border-radius:50%;
+}
+
 
 
 /* Main */
 
 .main{
 width:55%;
-padding:20px;
+padding:30px;
 }
 
 canvas{
 background:white;
 padding:20px;
-border-radius:10px;
+border-radius:12px;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
 }
+
 
 /* Cards */
 
@@ -53,12 +65,34 @@ margin-top:20px;
 }
 
 .card{
-background:white;
+flex:1;
 padding:20px;
-border-radius:10px;
-width:30%;
-box-shadow:0 3px 10px rgba(0,0,0,0.1);
+border-radius:12px;
+color:white;
 }
+
+.card i{
+font-size:24px;
+}
+
+.card p{
+font-size:22px;
+font-weight:600;
+margin:5px 0;
+}
+
+.blue{
+background:#4fc3f7;
+}
+
+.pink{
+background:#f48fb1;
+}
+
+.purple{
+background:#ba68c8;
+}
+
 
 
 /* Table */
@@ -68,20 +102,55 @@ width:100%;
 margin-top:20px;
 border-collapse:collapse;
 background:white;
+border-radius:10px;
+overflow:hidden;
 }
 
-th,td{
-padding:10px;
-border-bottom:1px solid #ddd;
+th{
+background:#f5f6fa;
+padding:12px;
 text-align:left;
 }
+
+td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
 
 
 /* Profile */
 
 .profile{
 width:25%;
+padding:20px;
+background:#f9fafc;
+}
+
+.profileCard{
 background:white;
 padding:20px;
-border-left:1px solid #ddd;
+border-radius:12px;
+text-align:center;
+}
+
+.profileCard img{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:10px;
+}
+
+.labResults{
+background:white;
+margin-top:20px;
+padding:20px;
+border-radius:12px;
+}
+
+.labResults li{
+padding:10px;
+border-bottom:1px solid #eee;
+display:flex;
+justify-content:space-between;
 }
