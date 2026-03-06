@@ -22,19 +22,32 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="dashboard">
 
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h2 class="logo">Tech.Care</h2>
+
+<h3>Patients</h3>
+
+<ul id="patientList"></ul>
+
+</div>
+
+
+
 <!-- MAIN CONTENT -->
 
 <div class="main">
 
-<!-- DIAGNOSIS HISTORY CARD -->
+<!-- Diagnosis History -->
 
 <div class="chart-card">
 
 <h2>Diagnosis History</h2>
 
 <div class="bp-wrapper">
-
-<!-- LEFT SIDE : CHART -->
 
 <div class="bp-chart">
 
@@ -45,21 +58,16 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
-<!-- RIGHT SIDE : VALUES -->
-
 <div class="bp-stats">
 
 <div class="bp-item">
 
 <div class="bp-label">
-
 <span class="dot systolic"></span>
-
 Systolic
-
 </div>
 
-<h2 id="systolicValue">160</h2>
+<h2 id="systolicValue"></h2>
 
 <p class="trend-up">▲ Higher than Average</p>
 
@@ -69,14 +77,11 @@ Systolic
 <div class="bp-item">
 
 <div class="bp-label">
-
 <span class="dot diastolic"></span>
-
 Diastolic
-
 </div>
 
-<h2 id="diastolicValue">78</h2>
+<h2 id="diastolicValue"></h2>
 
 <p class="trend-down">▼ Lower than Average</p>
 
@@ -89,7 +94,8 @@ Diastolic
 </div>
 
 
-<!-- HEALTH CARDS -->
+
+<!-- Health Cards -->
 
 <div class="cards">
 
@@ -101,7 +107,7 @@ Diastolic
 
 <h4>Respiratory Rate</h4>
 
-<p>20 bpm</p>
+<p id="respiratoryRate"></p>
 
 <span>Normal</span>
 
@@ -118,7 +124,7 @@ Diastolic
 
 <h4>Temperature</h4>
 
-<p>98.6°F</p>
+<p id="temperature"></p>
 
 <span>Normal</span>
 
@@ -135,7 +141,7 @@ Diastolic
 
 <h4>Heart Rate</h4>
 
-<p>78 bpm</p>
+<p id="heartRate"></p>
 
 <span>Lower than Average</span>
 
@@ -145,9 +151,76 @@ Diastolic
 
 </div>
 
+
+
+<!-- Diagnostic List -->
+
+<div class="diagnostic-card">
+
+<h3>Diagnostic List</h3>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Problem</th>
+<th>Description</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody id="diagnosisList"></tbody>
+
+</table>
+
 </div>
 
 </div>
+
+
+
+<!-- PROFILE COLUMN -->
+
+<div class="profile">
+
+<img id="profilePic" class="profile-pic">
+
+<h2 id="patientName"></h2>
+
+
+<p><strong>Date of Birth:</strong> <span id="dob"></span></p>
+
+<p><strong>Gender:</strong> <span id="gender"></span></p>
+
+<p><strong>Contact Info:</strong> <span id="phone"></span></p>
+
+<p><strong>Emergency Contact:</strong> <span id="emergency"></span></p>
+
+<p><strong>Insurance Provider:</strong> <span id="insurance"></span></p>
+
+
+<button class="info-btn">Show All Information</button>
+
+
+<!-- Lab Results -->
+
+<div class="lab-card">
+
+<h3>Lab Results</h3>
+
+<ul id="labResults"></ul>
+
+</div>
+
+</div>
+
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
