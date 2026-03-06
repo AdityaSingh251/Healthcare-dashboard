@@ -14,6 +14,7 @@ Authorization:"Basic "+auth
 .then(data=>{
 
 const patient = data.find(p=>p.name==="Jessica Taylor");
+  console.log(patient.diagnoistic_list);
 
 
 /* PROFILE */
