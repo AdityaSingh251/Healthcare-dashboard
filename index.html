@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -21,29 +22,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <div class="dashboard">
 
-<!-- SIDEBAR -->
-
-<div class="sidebar">
-
-<h2 class="logo">Tech.Care</h2>
-
-<h4>Patients</h4>
-
-<ul id="patientList"></ul>
-
-</div>
-
-
-
 <!-- MAIN CONTENT -->
 
 <div class="main">
+
+<!-- DIAGNOSIS HISTORY CARD -->
 
 <div class="chart-card">
 
 <h2>Diagnosis History</h2>
 
 <div class="bp-wrapper">
+
+<!-- LEFT SIDE : CHART -->
 
 <div class="bp-chart">
 
@@ -54,26 +45,40 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
+<!-- RIGHT SIDE : VALUES -->
+
 <div class="bp-stats">
 
-<div>
+<div class="bp-item">
 
-<span class="dot systolic"></span> Systolic
+<div class="bp-label">
 
-<h2 id="systolicValue"></h2>
+<span class="dot systolic"></span>
 
-<p>Higher than Average</p>
+Systolic
+
+</div>
+
+<h2 id="systolicValue">160</h2>
+
+<p class="trend-up">▲ Higher than Average</p>
 
 </div>
 
 
-<div>
+<div class="bp-item">
 
-<span class="dot diastolic"></span> Diastolic
+<div class="bp-label">
 
-<h2 id="diastolicValue"></h2>
+<span class="dot diastolic"></span>
 
-<p>Lower than Average</p>
+Diastolic
+
+</div>
+
+<h2 id="diastolicValue">78</h2>
+
+<p class="trend-down">▼ Lower than Average</p>
 
 </div>
 
@@ -82,7 +87,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 </div>
-
 
 
 <!-- HEALTH CARDS -->
@@ -97,7 +101,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <h4>Respiratory Rate</h4>
 
-<p id="respiratoryRate"></p>
+<p>20 bpm</p>
 
 <span>Normal</span>
 
@@ -114,7 +118,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <h4>Temperature</h4>
 
-<p id="temperature"></p>
+<p>98.6°F</p>
 
 <span>Normal</span>
 
@@ -131,7 +135,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <h4>Heart Rate</h4>
 
-<p id="heartRate"></p>
+<p>78 bpm</p>
 
 <span>Lower than Average</span>
 
@@ -141,68 +145,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </div>
 
-
-
-<!-- DIAGNOSTIC LIST -->
-
-<div class="diagnostic-card">
-
-<h3>Diagnostic List</h3>
-
-<table>
-
-<thead>
-
-<tr>
-<th>Problem</th>
-<th>Description</th>
-<th>Status</th>
-</tr>
-
-</thead>
-
-<tbody id="diagnosisList"></tbody>
-
-</table>
-
 </div>
 
 </div>
-
-
-
-<!-- PROFILE -->
-
-<div class="profile">
-
-<img id="profilePic">
-
-<h2 id="patientName"></h2>
-
-<p><b>DOB:</b> <span id="dob"></span></p>
-
-<p><b>Gender:</b> <span id="gender"></span></p>
-
-<p><b>Phone:</b> <span id="phone"></span></p>
-
-<p><b>Emergency:</b> <span id="emergency"></span></p>
-
-<p><b>Insurance:</b> <span id="insurance"></span></p>
-
-
-<div class="lab-card">
-
-<h3>Lab Results</h3>
-
-<ul id="labResults"></ul>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
 
 </body>
 </html>
