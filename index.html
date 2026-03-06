@@ -3,42 +3,48 @@
 
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Healthcare Dashboard</title>
 
 <link rel="stylesheet" href="style.css">
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<!-- Icons -->
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="dashboard">
 
 <!-- Sidebar -->
+
 <div class="sidebar">
 
-<h2 class="logo">Tech.Care</h2>
+<div class="logo">Tech.Care</div>
+
+<h3 class="patients-title">Patients</h3>
 
 <ul id="patientList"></ul>
 
 </div>
 
 
+<!-- Main Section -->
 
-<!-- Main Dashboard -->
 <div class="main">
 
 <h2>Diagnosis History</h2>
 
+<div class="chart-card">
 <canvas id="bpChart"></canvas>
+</div>
+
+
+<!-- Health Cards -->
 
 <div class="cards">
 
@@ -46,37 +52,35 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <i class="fa-solid fa-lungs"></i>
 
-<h3>Respiratory Rate</h3>
+<h4>Respiratory Rate</h4>
 
-<p id="respiratoryRate"></p>
+<p id="respiratoryRate">--</p>
 
 <span>Normal</span>
 
 </div>
-
 
 
 <div class="card pink">
 
-<i class="fa-solid fa-temperature-three-quarters"></i>
+<i class="fa-solid fa-thermometer-half"></i>
 
-<h3>Temperature</h3>
+<h4>Temperature</h4>
 
-<p id="temperature"></p>
+<p id="temperature">--</p>
 
 <span>Normal</span>
 
 </div>
 
 
-
-<div class="card purple">
+<div class="card red">
 
 <i class="fa-solid fa-heart"></i>
 
-<h3>Heart Rate</h3>
+<h4>Heart Rate</h4>
 
-<p id="heartRate"></p>
+<p id="heartRate">--</p>
 
 <span>Lower than Average</span>
 
@@ -85,18 +89,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </div>
 
 
+<!-- Diagnostic List -->
 
 <div class="diagnostic-container">
 
-<h2>Diagnostic List</h2>
+<h3>Diagnostic List</h3>
 
 <table>
+
 <thead>
+
 <tr>
 <th>Problem</th>
 <th>Description</th>
 <th>Status</th>
 </tr>
+
 </thead>
 
 <tbody id="diagnosisList"></tbody>
@@ -105,33 +113,38 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 </div>
 
+</div>
 
-<!-- Profile + Lab -->
+
+<!-- Profile Section -->
+
 <div class="profile">
 
-<div class="profileCard">
+<img id="profilePic" class="profile-pic">
 
-<img id="profilePic" class="profile-pic" src="" alt="Patient Profile">
-  
-<h2 id="patientName"></h2>
+<h2 id="patientName">Jessica Taylor</h2>
 
-<p><b>DOB:</b> <span id="dob"></span></p>
+<div class="profile-info">
 
-<p><b>Gender:</b> <span id="gender"></span></p>
+<p><strong>Date Of Birth</strong><br><span id="dob"></span></p>
 
-<p><b>Phone:</b> <span id="phone"></span></p>
+<p><strong>Gender</strong><br><span id="gender"></span></p>
+
+<p><strong>Contact Info</strong><br><span id="phone"></span></p>
 
 </div>
 
 
+<button class="profile-btn">Show All Information</button>
 
-<div class="lab-results-container">
+
+<!-- Lab Results -->
+
+<div class="lab-results">
 
 <h3>Lab Results</h3>
 
-<ul id="labResults" class="lab-results-list"></ul>
-
-</div>
+<ul id="labResults"></ul>
 
 </div>
 
