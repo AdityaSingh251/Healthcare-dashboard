@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Healthcare Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="sidebar">
+<h2>Patients</h2>
+
+<ul id="patientsList"></ul>
+
+</div>
+  
+<div class="main">
+
+<h2>Diagnosis History</h2>
+
+<canvas id="bpChart"></canvas>
+<div class="cards">
+<div class="card">
+<h3>Respiratory Rate</h3>
+<p id="resp"></p>
+</div>
+
+<div class="card">
+<h3>Temperature</h3>
+<p id="temp"></p>
+</div>
+
+<div class="card">
+<h3>Heart Rate</h3>
+<p id="heart"></p>
+</div>
+</div>
+</div>
+
+<div class="profile">
+
+<img id="profilePic" width="120">
+
+<h2 id="name"></h2>
+
+<p id="dob"></p>
+<p id="gender"></p>
+<p id="phone"></p>
+
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
