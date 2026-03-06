@@ -230,6 +230,14 @@ align-items:center;
 padding:10px 0;
 border-bottom:1px solid #eee;
 }
+.lab-card::-webkit-scrollbar{
+width:6px;
+}
+
+.lab-card::-webkit-scrollbar-thumb{
+background:#ccc;
+border-radius:10px;
+}
 
 /* Scrollbar */
 
