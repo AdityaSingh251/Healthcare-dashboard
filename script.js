@@ -3,41 +3,36 @@ const password = "skills-test";
 
 const encoded = btoa(username + ":" + password);
 
-fetch("https://fedskillstest.coalitiontechnologies.workers.dev",{
-
-headers:{
-"Authorization":"Basic " + encoded
-}
-
+fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
+  headers: {
+    "Authorization": "Basic " + encoded
+  }
 })
 .then(res => res.json())
 .then(data => {
 
-const patient = data.find(p => p.name === "Jessica Taylor");
+  const patient = data.find(p => p.name === "Jessica Taylor");
 
-displayPatient(patient);
-
-drawChart(patient.diagnosis_history);
-
-populateDiagnosis(patient.diagnostic_list);
-
-populatePatients(data);
+  displayPatient(patient);
+  drawChart(patient.diagnosis_history);
+  populateDiagnosis(patient.diagnostic_list);
+  populatePatients(data);
+  populateLabResults(patient.lab_results);
 
 });
 
 
 
+/* ================= PATIENT PROFILE ================= */
+
 function displayPatient(patient){
+
 document.getElementById("profilePic").src = patient.profile_picture;
 
 document.getElementById("patientName").innerText = patient.name;
-
 document.getElementById("dob").innerText = patient.date_of_birth;
-
 document.getElementById("gender").innerText = patient.gender;
-
 document.getElementById("phone").innerText = patient.phone_number;
-
 
 const latest = patient.diagnosis_history[0];
 
@@ -54,26 +49,22 @@ latest.respiratory_rate.value + " bpm";
 
 
 
+/* ================= CHART ================= */
+
 function drawChart(history){
 
 const labels = history.map(item => item.month);
 
 const systolic = history.map(item => item.blood_pressure.systolic.value);
-
 const diastolic = history.map(item => item.blood_pressure.diastolic.value);
-
 
 const ctx = document.getElementById("bpChart");
 
-
 new Chart(ctx,{
-
 type:"line",
 
 data:{
-
 labels:labels,
-
 datasets:[
 
 {
@@ -100,9 +91,13 @@ fill:false
 
 
 
+/* ================= DIAGNOSIS LIST ================= */
+
 function populateDiagnosis(list){
 
 const table = document.getElementById("diagnosisList");
+
+table.innerHTML = "";
 
 list.forEach(item => {
 
@@ -120,51 +115,43 @@ table.innerHTML += `
 
 
 
+/* ================= PATIENT SIDEBAR ================= */
+
 function populatePatients(patients){
 
 const ul = document.getElementById("patientList");
 
+ul.innerHTML = "";
+
 patients.forEach(p => {
 
-ul.innerHTML += `<li>${p.name}</li>`;
+const active = p.name === "Jessica Taylor" ? "activePatient" : "";
+
+ul.innerHTML += `<li class="${active}">${p.name}</li>`;
 
 });
-  function displayPatient(patient){
 
-document.getElementById("patientName").innerText = patient.name;
-document.getElementById("dob").innerText = patient.date_of_birth;
-document.getElementById("gender").innerText = patient.gender;
-document.getElementById("phone").innerText = patient.phone_number;
-
-document.getElementById("profileImage").src = patient.profile_picture;
-
-const latest = patient.diagnosis_history[0];
-
-document.getElementById("heartRate").innerText =
-latest.heart_rate.value + " bpm";
-
-document.getElementById("temperature").innerText =
-latest.temperature.value + "°F";
-
-document.getElementById("respiratoryRate").innerText =
-latest.respiratory_rate.value + " bpm";
+}
 
 
-/* Lab Results */
+
+/* ================= LAB RESULTS ================= */
+
+function populateLabResults(labs){
 
 const labList = document.getElementById("labResults");
 
-patient.lab_results.forEach(item => {
+labList.innerHTML = "";
+
+labs.forEach(item => {
 
 labList.innerHTML += `
-<li>
+<li class="lab-item">
 ${item}
 <i class="fa-solid fa-download"></i>
 </li>
 `;
 
 });
-
-}
 
 }
