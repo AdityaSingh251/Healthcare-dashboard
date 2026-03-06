@@ -28,7 +28,6 @@ fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
 function displayPatient(patient){
 
 document.getElementById("profilePic").src = patient.profile_picture;
-
 function displayPatient(patient){
 
 document.getElementById("profilePic").src = patient.profile_picture;
@@ -45,6 +44,7 @@ document.getElementById("emergency").innerText = patient.emergency_contact;
 
 document.getElementById("insurance").innerText = patient.insurance_type;
 
+}
 const latest = patient.diagnosis_history[0];
 
 document.getElementById("heartRate").innerText =
