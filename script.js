@@ -14,14 +14,6 @@ Authorization:"Basic "+auth
 .then(data=>{
 
 const patient = data.find(p=>p.name==="Jessica Taylor");
-const latest = patient.diagnosis_history[0];
-
-const systolic = latest.blood_pressure.systolic.value;
-const diastolic = latest.blood_pressure.diastolic.value;
-
-document.getElementById("systolicValue").innerText = systolic;
-document.getElementById("diastolicValue").innerText = diastolic;
-
 
 /* PROFILE */
 
@@ -96,6 +88,14 @@ tension:0.4
 }
 
 });
+
+const latest = patient.diagnosis_history[0];
+
+const systolic = latest.blood_pressure.systolic.value;
+const diastolic = latest.blood_pressure.diastolic.value;
+
+document.getElementById("systolicValue").innerText = systolic;
+document.getElementById("diastolicValue").innerText = diastolic;
 
 
 
