@@ -29,10 +29,21 @@ function displayPatient(patient){
 
 document.getElementById("profilePic").src = patient.profile_picture;
 
+function displayPatient(patient){
+
+document.getElementById("profilePic").src = patient.profile_picture;
+
 document.getElementById("patientName").innerText = patient.name;
+
 document.getElementById("dob").innerText = patient.date_of_birth;
+
 document.getElementById("gender").innerText = patient.gender;
+
 document.getElementById("phone").innerText = patient.phone_number;
+
+document.getElementById("emergency").innerText = patient.emergency_contact;
+
+document.getElementById("insurance").innerText = patient.insurance_type;
 
 const latest = patient.diagnosis_history[0];
 
