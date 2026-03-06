@@ -2,20 +2,22 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial;
 }
 
 body{
 background:#f6f8fc;
 }
 
-/* DASHBOARD LAYOUT */
+
+/* DASHBOARD */
 
 .dashboard{
 display:grid;
-grid-template-columns:260px 1fr 320px;
+grid-template-columns:250px 1fr 320px;
 height:100vh;
 }
+
 
 /* SIDEBAR */
 
@@ -28,13 +30,13 @@ overflow-y:auto;
 
 .logo{
 font-size:22px;
-font-weight:700;
+font-weight:bold;
 margin-bottom:20px;
 }
 
 .patients-title{
 margin-bottom:15px;
-color:#666;
+color:#777;
 }
 
 .patient-list{
@@ -46,8 +48,8 @@ display:flex;
 align-items:center;
 gap:10px;
 padding:10px;
-border-radius:8px;
 cursor:pointer;
+border-radius:8px;
 }
 
 .patient-list li:hover{
@@ -55,10 +57,11 @@ background:#f2f4ff;
 }
 
 .patient-list img{
-width:36px;
-height:36px;
+width:35px;
+height:35px;
 border-radius:50%;
 }
+
 
 /* MAIN */
 
@@ -67,9 +70,10 @@ padding:25px;
 overflow-y:auto;
 }
 
-/* CHART */
 
-.chart-section{
+/* CHART CARD */
+
+.chart-card{
 background:white;
 padding:20px;
 border-radius:12px;
@@ -77,7 +81,57 @@ box-shadow:0 2px 8px rgba(0,0,0,0.05);
 margin-bottom:20px;
 }
 
-/* CARDS */
+.chart-container{
+display:flex;
+gap:30px;
+align-items:center;
+}
+
+.chart-left{
+flex:3;
+}
+
+.chart-right{
+flex:1;
+}
+
+.bp-row{
+margin-bottom:25px;
+}
+
+.bp-title{
+display:flex;
+align-items:center;
+gap:8px;
+color:#666;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+}
+
+.systolic{
+background:#d46cff;
+}
+
+.diastolic{
+background:#4a8df8;
+}
+
+.trend-up{
+font-size:13px;
+color:#777;
+}
+
+.trend-down{
+font-size:13px;
+color:#777;
+}
+
+
+/* HEALTH CARDS */
 
 .cards{
 display:grid;
@@ -98,20 +152,6 @@ border-radius:12px;
 font-size:22px;
 }
 
-.card h4{
-font-size:14px;
-}
-
-.card p{
-font-size:18px;
-font-weight:600;
-}
-
-.card span{
-font-size:12px;
-color:#666;
-}
-
 .blue{
 background:#e3f6ff;
 }
@@ -123,6 +163,7 @@ background:#ffe3ec;
 .red{
 background:#ffe3e3;
 }
+
 
 /* DIAGNOSTIC */
 
@@ -150,12 +191,12 @@ text-align:left;
 
 th{
 color:#777;
-font-size:13px;
 }
 
 tr{
 border-bottom:1px solid #eee;
 }
+
 
 /* PROFILE */
 
@@ -176,12 +217,9 @@ border-radius:50%;
 margin-bottom:10px;
 }
 
-.profile h2{
-margin-bottom:15px;
-}
-
 .profile-info{
 width:100%;
+margin-top:10px;
 }
 
 .info-row{
@@ -203,6 +241,7 @@ color:#777;
 font-size:14px;
 }
 
+
 /* BUTTON */
 
 .info-btn{
@@ -214,6 +253,7 @@ border-radius:20px;
 color:white;
 cursor:pointer;
 }
+
 
 /* LAB RESULTS */
 
@@ -238,6 +278,7 @@ justify-content:space-between;
 padding:8px 0;
 border-bottom:1px solid #eee;
 }
+
 
 /* SCROLLBAR */
 
